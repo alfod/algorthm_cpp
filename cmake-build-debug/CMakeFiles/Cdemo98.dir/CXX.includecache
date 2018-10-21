@@ -6,18 +6,6 @@
 
 #IncludeRegexTransform: 
 
-C:/Users/Administrator/CLionProjects/Cdemo98/src/cpp/Calculator.cpp
-Calculator.h
-C:/Users/Administrator/CLionProjects/Cdemo98/src/cpp/Calculator.h
-SeqStack.h
-C:/Users/Administrator/CLionProjects/Cdemo98/src/cpp/SeqStack.h
-set
--
-cstdarg
--
-map
--
-
 C:/Users/Administrator/CLionProjects/Cdemo98/src/cpp/Calculator.h
 string
 -
@@ -37,6 +25,8 @@ C:/Users/Administrator/CLionProjects/Cdemo98/src/cpp/SeqStack.tpp
 C:/Users/Administrator/CLionProjects/Cdemo98/src/cpp/SeqStack.tpp
 SeqStack.h
 C:/Users/Administrator/CLionProjects/Cdemo98/src/cpp/SeqStack.h
+typeinfo
+-
 
 C:/Users/Administrator/CLionProjects/Cdemo98/src/cpp/Stack.h
 

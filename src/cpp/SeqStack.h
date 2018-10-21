@@ -34,7 +34,7 @@ public:
 
     bool getTop(T &x) const;
 
-    bool IsEmpty() const { return top == -1; };
+    bool IsEmpty() const { return top <= -1; };
 
     bool IsFull() const { return (maxSize - 1) == top; }
 

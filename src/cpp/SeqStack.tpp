@@ -3,20 +3,20 @@
 //
 
 #include "SeqStack.h"
+#include <typeinfo>
 
 using namespace std;
 
 template<class T>
-SeqStack<T>::SeqStack(int sz) {
-    top = -1;
-    maxSize = 50;
+SeqStack<T>::SeqStack(int sz) : top(-1), maxSize(sz) {
+    elements = new T[sz];
 }
 
 template<class T>
 void SeqStack<T>::overFLowProcess() {
     T *newArray = new T[maxSize + elementIncrement];
     assert(newArray != NULL);
-    for (int i = 0; i < top; ++i) {
+    for (int i = 0; i <= top; ++i) {
         newArray[i] = elements[i];
     }
     maxSize = maxSize + elementIncrement;
@@ -34,6 +34,9 @@ void SeqStack<T>::Push(const T &x) {
 
 template<class T>
 bool SeqStack<T>::Pop(T &x) {
+    if (IsEmpty()) {
+        return false;
+    }
     x = elements[top--];
     return true;
 }
@@ -68,9 +71,9 @@ ostream &operator<<(ostream &os, SeqStack<T> &seqStack) {
 
 template<class T>
 string SeqStack<T>::toString() const {
-    string s = new string();
-    for (int i = 0; i < top; ++i) {
-        s.append(elements[i]);
+    string s;
+    for (int i = top; i >= 0; --i) {
+        s += elements[i];
     }
     return s;
 }

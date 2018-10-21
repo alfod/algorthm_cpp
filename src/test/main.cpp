@@ -17,13 +17,10 @@ using namespace std;
 //    va_end(arg_ptr);
 //    return aSet;
 //}
-
-set<char> buildSet(int count, ...);
-
-map<char, int> buildMap(int count, ...);
+map<string, int> buildMap(int count, ...);
 
 void calculator() {
-    Calculator::calculate("1+(1-2)*4+2/8");
+    Calculator::calculate("1.2*3-1");
 }
 
 int main() {
