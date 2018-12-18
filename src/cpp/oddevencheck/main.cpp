@@ -8,9 +8,9 @@ using namespace std;
 int main() {
     int array[4][4] = {
             {1, 0, 1, 0},
-            {0, 0, 0, 0},
+            {0, 1, 0, 0},
             {1, 1, 1, 1},
-            {0, 0, 0, 1}
+            {0, 1, 0, 1}
     };
 
     int rowLength = sizeof(array) / sizeof(array[0]);
@@ -21,7 +21,7 @@ int main() {
         row = array[i];
         r = 0;
         for (j = 0; j < colLength; j++) {
-            r += array[i][j];
+            r ^= array[i][j];
         }
         if (r % 2 == 1) {
             errorRow[errorNum++] = i+1;
@@ -31,7 +31,7 @@ int main() {
     for (i = 0; i < colLength; i++) {
         r = 0;
         for (j = 0; j < rowLength; j++) {
-            r += array[j][i];
+            r ^= array[j][i];
         }
         if (r % 2 == 1) {
             errorCol[errorNum++] = i+1;
