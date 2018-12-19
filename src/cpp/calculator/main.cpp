@@ -7,38 +7,54 @@
 
 using namespace std;
 
-int main() {
-    char inchars[201];
-    cin.getline(inchars, 201);
-    double nums[101], num = 0.0, result[101];
+double calculator(char inchars[]) {
+    double nums[101], result = 0.0;
     int charLength = strlen(inchars), incharIndex = 0, numIndex = 0;
     while ('0' <= inchars[incharIndex] && inchars[incharIndex] <= '9') {
-        num = num * 10 + inchars[incharIndex++] - '0';
+        result = result * 10 + inchars[incharIndex++] - '0';
     }
-    nums[numIndex++] = num;
+    nums[numIndex++] = result;
     char oper;
     while (incharIndex < charLength) {
-        num = 0.0;
+        result = 0.0;
         oper = inchars[incharIndex++];
         while ('0' <= inchars[incharIndex] && inchars[incharIndex] <= '9') {
-            num = num * 10 + inchars[incharIndex++] - '0';
+            result = result * 10 + inchars[incharIndex++] - '0';
         }
         if (oper == '-') {
-            nums[numIndex++] = -num;
+            nums[numIndex++] = -result;
         }
         if (oper == '+') {
-            nums[numIndex++] = num;
+            nums[numIndex++] = result;
         }
         if (oper == '*') {
-            nums[numIndex - 1] *= num;
+            nums[numIndex - 1] *= result;
         }
         if (oper == '/') {
-            nums[numIndex - 1] /= num;
+            nums[numIndex - 1] /= result;
         }
     }
-    num = 0.0;
+    result = 0.0;
     for (int i = 0; i < numIndex; i++) {
-        num += nums[i];
+        result += nums[i];
     }
-    cout << "num = " << fixed << setprecision(2) << num << endl;
+    return result;
+}
+
+int main() {
+    char *inchars;
+    char *array[101];
+    int arrayLength = 0, arrayIndex = 0;
+    while (true) {
+        inchars = new char[101];
+        cin.getline(inchars, 201);
+        if (strlen(inchars) == 1 && inchars[0] == '0') {
+            break;
+        }
+        array[arrayLength++] = inchars;
+    };
+    while (arrayIndex < arrayLength) {
+        double result = calculator(array[arrayIndex++]);
+        cout << fixed << setprecision(2) << result << endl;
+    }
 }
